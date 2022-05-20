@@ -1,0 +1,16 @@
+# package directories
+node_modules
+jspm_packages
+
+#temp directories
+#temp
+
+# Serverless directories
+.serverless
+
+# Secret directories
+#variables.env
+#config.dev.json
+#config.local.json
+#config.prod.json
+DS_Store

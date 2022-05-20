@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "jessica-bot-mailer",
+  "private_key_id": "de45fc3d167823152a01468bf30551c53bb8e79c",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQCx78a2EE2CSH3j\nO5vvp2j2nhoH0OikhV6y082VzdQ1X1aCUqLW8csbAW1ziVzu1qaMQmmOUB2EJAvS\nwT0dWD04Ne7FKB8+euaWnwKZ9j3xqYMHG4JKFVYuGkJ8cWk4A4OAKUVoOsvVu0vR\neH445yeECAA6hAxAfWgbTgBropZU4C9HwCikZnW9wP5cwdqggGQUy9aAuoP8lYAq\ntMtklA1hB+KotMHukrucLZYORKpX4nHBSUJoD2N+YBg1R8rfuAowULV9dHvSqUSu\n03p5aNk/cx4kCGms/9vi8+4PJ4oUATEHzFSVsfXG/JbRsJ930Eo/iypDHJj9/f08\n1Y0SPLsbAgMBAAECggEAPhV1xV+R07PcbLUHNwq35liKp5B+I60/OfEJycuLz+WI\nZydTFuE9pxoL6OSULudpLAYeE2AjtE/paisvWjZIAf1bZqIVqLS0EPjBLRwMR+4H\nwCqafqPMMoDKEuZ1OmyLbOO5imD9bwEPNrKug8cvc/NgtQoOxk+bS++e2O9dOZZ8\nGAW9Z1TTsj6q6CRqyfRG9hLa843APYNEIyPGx9FVLjcpBUNMfX1uIAUNCBIgMIYW\nurqcdlKtwPtqxS3y2slENlIYRXu0X75kicyFTsn3H4T/Av2UEm4Jr+2+kjon7AH4\nf+ABQEww4l+0T3iN1Z+g7i56hDjlQk4DiMvDzIuL4QKBgQDb3Nn6Y80rjAaf/Rwf\nGS6xBRw5HWQYuD0zEv0SM0ucOS0h8ZVVhTUCXIDEwKmrTNHY69BjbHm/fJtZnu/n\ns/MZXJ3lOMFM1TZyfLO6sq17jnxUOfkmdxrvOQIW/vbOzdMXK3n/wXPloa9n5+ZO\nPRxkn9QRVNNBy3Olhp9cEFtV4QKBgQDPLs3TbFHldnJuSND5wRB51PwhLQgtMlZH\nWEhYwQ8Qxhehff6bXKeUGOiyGaPh7BnNakn88rGcjfeB3LzWCT8zRsAXHLGBfsfU\nj71Loa7mn2FaGafqvRguboO7sNYhhpDtsNr4UtRkoZYf+3D/MWIJFPdBj/RzmoJZ\n1G+bJzl4ewKBgBsgdqyUH75dunuG6S9VFhO1Q7QwUidSpApnL15Ngei2jUEA46H3\nm4C9FQ4xjz2ZbtLK1Z1Oxv6/SxOVrpfx9e6NJNYhWIg4Tk114V8JqKnz/JcPyBPc\n4i/d4sofjygY8RCMxrKtlbUha9jwHdRNafFoXuv8gUw+4/fqUkMzqXFBAoGAH6xV\nFQRTRNQlzExffj8QqL9xyBSdUmOGoyOQ89iX2AWgqTSczt2MVOy17jxTPH+etjOQ\nmhX0Jy3g775yM/p36fvf8+iUDmr2W72Zv8048tLczCxt6kn8P2TvyKrRIZDz6RKH\ndz0acUPusnb7IFhJV4AYCLLcOSwez2LVqQ+HDq8CgYEAx2VKtBRRtfHGVOxWvMLl\n0Xob9dYqFEJQxWMr7rYVvaIqjAwxuV7H8vXzM2qF2/xY+/Xex9rGxdogk2ezwoGU\nbtaOBo4TXnSSeQe/iMGrP79CyR63w2ZKX14WfUHm60Aar5oEZJ+eEen2S0gooQ/i\nyRbCvUa/iPdj1U8l//PRx2A=\n-----END PRIVATE KEY-----\n",
+  "client_email": "jessika-bot-mailer@jessica-bot-mailer.iam.gserviceaccount.com",
+  "client_id": "111135733518363740843",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/jessika-bot-mailer%40jessica-bot-mailer.iam.gserviceaccount.com"
+}
