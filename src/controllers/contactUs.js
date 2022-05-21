@@ -52,18 +52,23 @@ let contactController = {
                                 invalidData.push("invalidBusinessEmail");
                                 emailData = { isGiven: true, verifiedStatus: false, isBusinessEmail: false, data: slotValues[key].listValue.values[0].stringValue };
                             } else {
-                                if (emailVerifiedData["smtpCheck"] === "true") {
-                                    slotsData.isSlotGiven = true;
+								slotsData.isSlotGiven = true;
                                     slotsData.slotsAnswered.push("askEmail");
                                     conversationData.isEmailAsked = false;
                                     emailData = { isGiven: true, verifiedStatus: true, isBusinessEmail: true, data: slotValues[key].listValue.values[0].stringValue };
                                     conversationData.userDetails.email = emailData.data;
-                                } else {
-                                    console.log("here");
-                                    conversationData.invailEmail = true;
-                                    conversationData.discussionWithUserForEmailValidity = true;
-                                    emailData = { isGiven: true, verifiedStatus: false, isBusinessEmail: true, data: slotValues[key].listValue.values[0].stringValue };
-                                }
+                                // if (emailVerifiedData["smtpCheck"] === "true") {
+                                //     slotsData.isSlotGiven = true;
+                                //     slotsData.slotsAnswered.push("askEmail");
+                                //     conversationData.isEmailAsked = false;
+                                //     emailData = { isGiven: true, verifiedStatus: true, isBusinessEmail: true, data: slotValues[key].listValue.values[0].stringValue };
+                                //     conversationData.userDetails.email = emailData.data;
+                                // } else {
+                                //     console.log("here");
+                                //     conversationData.invailEmail = true;
+                                //     conversationData.discussionWithUserForEmailValidity = true;
+                                //     emailData = { isGiven: true, verifiedStatus: false, isBusinessEmail: true, data: slotValues[key].listValue.values[0].stringValue };
+                                // }
                             }
                         }
                         break;
