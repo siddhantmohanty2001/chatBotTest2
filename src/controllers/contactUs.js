@@ -13,15 +13,15 @@ let contactController = {
         // console.dir(JSON.stringify(conversationData.slotValues, null, 4));
         try {
             let responseObject = [];
-            let allSlots = ["askName", "askPhoneNumber", "askEmail"];
+            let allSlots = ["askName",  "askEmail"];
             let slotValues = conversationData.slotValues;
             let invalidData = []
             if (!Array.isArray(conversationData.slotsAnswered)) conversationData.slotsAnswered = [];
             let slotsData = { isSlotGiven: false, slotsAnswered: [] };
-            let phoneNumberData = { isGiven: false, verifiedStatus: false, data: null };
+            // let phoneNumberData = { isGiven: false, verifiedStatus: false, data: null };
             let emailData = { isGiven: false, verifiedStatus: false, isBusinessEmail: false, data: null };
             let nameData = { isGiven: false, data: null };
-            let jobSeekerData = { isGiven: false, data: false };
+            // let jobSeekerData = { isGiven: false, data: false };
             if (!conversationData.userDetails) conversationData.userDetails = {};
             if (conversationData.leadInserted && conversationData.intentNameByCordinator === "agent.contactUs") {
                 let result = integrator.responseCreater(integrator.conditionCreater("leadAlreadyCaptured"), conversationData);
@@ -32,7 +32,7 @@ let contactController = {
                 console.log({ key })
                 switch (key) {
                     case "given-name":
-                        console.log(slotValues[key].listValue.values);
+                        console.log("****NAME***",JSON.stringify(slotValues[key].listValue.values));
                         if (slotValues[key].listValue.values.length !== 0) {
                             slotsData.isSlotGiven = true;
                             slotsData.slotsAnswered.push("askName");
@@ -84,7 +84,7 @@ let contactController = {
             } else {
                 let toAsk = slotFiller(conversationData.slotsAnswered, allSlots);
                 if (invalidData.length == 2) {
-                    toAsk = "invalidEmailAndPhone";
+                    toAsk = "askEmail";
                 }
                 if (invalidData.length == 1) {
                     toAsk = invalidData[0];
@@ -100,11 +100,11 @@ let contactController = {
                         break;
                 }
                 // console.log(`before resume ${toAsk}`);
-                if (toAsk === "finalMessage" && conversationData.userDetails.jobSeeker && !conversationData.isResumeAsked) {
-                    toAsk = "askResume";
-                    conversationData.isResumeAsked = true;
-                    console.log(`resume ${toAsk}`);
-                }
+                // if (toAsk === "finalMessage" && conversationData.userDetails.jobSeeker && !conversationData.isResumeAsked) {
+                //     toAsk = "askResume";
+                //     conversationData.isResumeAsked = true;
+                //     console.log(`resume ${toAsk}`);
+                // }
                 // responseObject = integrator.conditionCreater(toAsk);
                 if (toAsk === "finalMessage") {
                     console.log(conversationData.userDetails, "1");
@@ -134,7 +134,7 @@ let contactController = {
             res.status(result.statusCode).json(result);
         }
     },
-    allSlots: ["askName", "askEmail", "askPhoneNumber"],
+    allSlots: ["askName", "askEmail"],
 };
 
 
