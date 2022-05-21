@@ -24,7 +24,7 @@ async function sendMail(emailId, subject, body, attachment, conversationData) {
 			},
 		});
 		const mailOptions = {
-			from:`Online 24*7 <${credentials.mailCreds.email}>` , // sender address
+			from:`Guru Inc <${credentials.mailCreds.email}>` , // sender address
 			to: emailId, // list of receivers
 			subject: subject, // Subject line
 			html: body, // plain text body
@@ -56,7 +56,7 @@ async function mail(transport, mailOptions, conversationData,subject) {
 			} else {
 				console.log(info);
 				conversationData.mailStatus = "sent";
-				// if(subject !== "Online 24*7") solutionLogs(conversationData,subject);
+				// if(subject !== "Guru Inc") solutionLogs(conversationData,subject);
 				resolve({
 					status: "success",
 					info: info,

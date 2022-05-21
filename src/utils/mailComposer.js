@@ -12,7 +12,7 @@ function mailComposer(userDetails, email, solutionName) {
 		body: `Hi ${name},<br><br>
               Please find the requested document attached.<br><br>
               Best Regards,<br>
-              Online 24*7`
+              Guru Inc`
 	};
 }
 
@@ -30,7 +30,7 @@ function mailComposer(userDetails, email, solutionName) {
 //               Please find the requested link attached.<br>
 //               ${userDetails.urlToBeEmailed}<br><br>
 //               Best Regards,<br>
-//               Online 24*7`,
+//               Guru Inc`,
 // 	};
 // }
 
@@ -48,12 +48,12 @@ function mailComposerForLink(userDetails, email, solutionName) {
               Please find the requested link attached.<br>
               ${userDetails.urlToBeEmailed}<br><br>
               Best Regards,<br>
-              Online 24*7`,
+              Guru Inc`,
 		// body: `Hi ${name},<br><br>
         //       Please find the requested link attached.<br>
         //       ${userDetails.urlToBeEmailed}<br><br>
         //       Best Regards,<br>
-        //       Online 24*7`,
+        //       Guru Inc`,
 	};
 }
 
@@ -66,14 +66,14 @@ function mailComposeForSalesTeam(userDetails) {
 	}
 	return {
 		email: "bot.leadmanager@gmail.com",
-		subject: `Online 24*7 - Sales Lead`,
+		subject: `Guru Inc - Sales Lead`,
 		body: `Hi Team,<br><br>
               Got a new lead now. Find the details below:<br><br>
               <b>Name:</b> ${name}<br>
               <b>Email:</b> ${userDetails.email}<br>
               <b>Phone Number:</b> ${userDetails.phoneNumber}<br><br>
               Thanks,<br>
-              Online 24*7`,
+              Guru Inc`,
 	};
 }
 
@@ -94,7 +94,7 @@ function mailComposerForIndustries(userDetails, email, industries, url) {
               Greetings. Please find the requested link below:<br>
               ${url}<br><br>
               With regards,<br>
-              Online 24*7`,
+              Guru Inc`,
 	};
 }
 
@@ -115,7 +115,7 @@ function mailComposerForTechExcellence(userDetails, email, techExcellence, url) 
               Greetings. Please find the requested link below:<br>
               ${url}<br><br>
               With regards,<br>
-              Online 24*7`,
+              Guru Inc`,
 	};
 }
 
@@ -134,7 +134,7 @@ function mailComposerForGeneral(userDetails, email, filler, url) {
               Greetings. Please find the requested link below:<br>
               ${url}<br><br>
               With regards,<br>
-              Online 24*7`,
+              Guru Inc`,
 	};
 }
 
