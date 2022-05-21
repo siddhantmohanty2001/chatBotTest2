@@ -42,6 +42,7 @@ let contactController = {
                         }
                         break;
                     case "email":
+						console.log("****EMAIL***",JSON.stringify(slotValues[key].listValue.values));
                         if (slotValues[key].listValue.values.length !== 0) {
                             let isBusinessMail = validateBusinessEmail(slotValues[key].listValue.values[0].stringValue);
                             let emailVerifiedData = "";
@@ -77,11 +78,13 @@ let contactController = {
             console.log(slotsData, conversationData.userDetails, conversationData.slotsAnswered);
 
             if (conversationData.slotsAnswered.length === 0) {
+				console("****Slot answered length 0*****")
                 conversationData.isNameAsked = true;
                 responseObject = integrator.conditionCreater("askName");
                 conversationData.previousIntentName = "agent.contactUs";
                 conversationData.nameAskedFlag = true;
             } else {
+				console("****Slot answered length greater than 0*****")
                 let toAsk = slotFiller(conversationData.slotsAnswered, allSlots);
                 if (invalidData.length == 2) {
                     toAsk = "askEmail";
