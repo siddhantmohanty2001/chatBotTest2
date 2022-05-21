@@ -114,7 +114,7 @@ let contactController = {
                 //     console.log(`resume ${toAsk}`);
                 // }
                 // responseObject = integrator.conditionCreater(toAsk);
-                if (toAsk === "nameEmailConfirm") {
+                if (toAsk === "finalMessage") {
                     console.log(conversationData.userDetails, "1");
                     conversationData.leadInserted = true;
                     leadGenaratedLogs(conversationData.userDetails);
