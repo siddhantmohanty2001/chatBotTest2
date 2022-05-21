@@ -5,9 +5,9 @@ const { leadGenaratedLogs } = require("../utils/logger");
 const { mailComposeForSalesTeam } = require("../utils/mailComposer");
 const { sendMail } = require("../utils/mailer");
 const { slotData } = require('../utils/supporter')
-let contactController = {
+let applyController = {
 
-    contactUs: async(req, res) => {
+    apply: async(req, res) => {
         let conversationData = req.body.conversationData;
         // console.log(JSON.stringify(conversationData, null, 4));
         // console.dir(JSON.stringify(conversationData.slotValues, null, 4));
@@ -114,7 +114,7 @@ let contactController = {
                 //     console.log(`resume ${toAsk}`);
                 // }
                 // responseObject = integrator.conditionCreater(toAsk);
-                if (toAsk === "nameEmailConfirm") {
+                if (toAsk === "finalMessage") {
                     console.log(conversationData.userDetails, "1");
                     conversationData.leadInserted = true;
                     leadGenaratedLogs(conversationData.userDetails);
@@ -146,4 +146,4 @@ let contactController = {
 };
 
 
-module.exports = contactController;
+module.exports = applyController;
