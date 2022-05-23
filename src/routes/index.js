@@ -6,6 +6,7 @@ const generalRoutes = require('./general');
 const logsRoutes = require('./logs');
 const testRoutes = require('./test');
 const applyRoutes = require('./apply');
+const readMoreRoutes = require('./readMore');
 
 router.use('/reachUs', reachUsRoutes);
 router.use('/default', defaultRoutes);
@@ -14,5 +15,6 @@ router.use('/general', generalRoutes);
 router.use('/logs', logsRoutes);
 router.use('/test', testRoutes);
 router.use('/careers', applyRoutes);
+router.use('/readMore',readMoreRoutes);
 
 module.exports = router;
