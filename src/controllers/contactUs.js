@@ -132,7 +132,7 @@ let contactUsController = {
                 // }
                 // responseObject = integrator.conditionCreater(toAsk);
                 if (toAsk === "finalMessage") {
-                    console.log(conversationData.userDetails, "1");
+                    console.log(conversationData.userDetails, "1******************");
                     conversationData.leadInserted = true;
                     leadGenaratedLogs(conversationData.userDetails);
                     if (conversationData.userDetails.name) conversationData.userDetails.name = conversationData.userDetails.name.trim()
