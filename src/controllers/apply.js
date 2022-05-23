@@ -13,7 +13,7 @@ let applyController = {
         // console.dir(JSON.stringify(conversationData.slotValues, null, 4));
         try {
             let responseObject = [];
-            let allSlots = ["askName",  "askEmail","askNumber"];
+            let allSlots = ["askName",  "askEmail","askPhoneNumber"];
             let slotValues = conversationData.slotValues;
             let invalidData = []
             if (!Array.isArray(conversationData.slotsAnswered)) conversationData.slotsAnswered = [];
@@ -45,7 +45,7 @@ let applyController = {
                             console.log("****PHONE NUMBER***",JSON.stringify(slotValues[key].listValue.values));
                             if (slotValues[key].listValue.values.length !== 0) {
                                 slotsData.isSlotGiven = true;
-                                slotsData.slotsAnswered.push("askNumber");
+                                slotsData.slotsAnswered.push("askPhoneNumber");
                                 conversationData.isNameAsked = false;
                                 phoneNumberData = { isGiven: true,verifiedStatus: true, data: slotValues[key].listValue.values[0].stringValue };
                                 conversationData.userDetails.phoneNumber = phoneNumberData.data;
@@ -112,7 +112,7 @@ let applyController = {
                     case "askEmail":
                         conversationData.isEmailAsked = true;
                         break;
-                    case "askNumber":
+                    case "askPhoneNumber":
                         conversationData.isNumberAsked=true;
                         break;
                     case "askName":
@@ -154,7 +154,7 @@ let applyController = {
             res.status(result.statusCode).json(result);
         }
     },
-    allSlots: ["askName", "askEmail","askNumber"],
+    allSlots: ["askName", "askEmail","askPhoneNumber"],
 };
 
 
