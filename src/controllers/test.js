@@ -9,7 +9,7 @@ let contactController = {
 	
 	test: async (req, res) => {
 		let conversationData = req.body.conversationData;
-		// console.log(req.body);
+		console.log(req.body);
 		const roles=["Program Management","Project Management","Risk Management","Software Quality Management","Configuration Management"]
 		try {
             
