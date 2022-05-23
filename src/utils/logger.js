@@ -1,6 +1,6 @@
 const { GoogleSpreadsheet } = require("google-spreadsheet");
-const creds = require("../../logger-320014-4cb5e5e3ec27.json");
-const doc = new GoogleSpreadsheet("19IYzDyvT-UFCmGI2NqwXMsLx4eWIOdCd_NlEW1cycKA"); //online 24*7
+const creds = require("../../orbital-falcon-351112-61a2b69d0022.json");
+const doc = new GoogleSpreadsheet("1INBjPK92Y2bzNIhbp2JF_BnypQI1zn8W-ZJrcHYXeHw"); //Guru Inc
 function currentTimestamp() {
 	let dt = new Date();
 	let currentOffSet = 330;
