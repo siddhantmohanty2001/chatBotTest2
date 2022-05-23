@@ -93,6 +93,7 @@ async function analyticsLogs() {
 
 async function leadGenaratedLogs(conversationData) {
 	try{
+		console.log("*********",conversationData);
 		await doc.useServiceAccountAuth({
 			client_email: creds.client_email,
 			private_key: creds.private_key,
