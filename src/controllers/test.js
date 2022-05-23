@@ -10,142 +10,38 @@ let contactController = {
 	test: async (req, res) => {
 		let conversationData = req.body.conversationData;
 		// console.log(req.body);
-		console.log(conversationData);
-		let slotValues=conversationData.slotValues;
-		console.log("slot values here",slotValues);
+		const roles=["Program Management","Project Management","Risk Management","Software Quality Management","Configuration Management"]
 		try {
-            for (let key in slotValues) {
-                console.log("***KEY***",{ key })
-		
-                switch (key) {
-					
-                    case "0":
-                        console.log("****ServiceType***",JSON.stringify(slotValues[key]));
-                        // if (slotValues[key].listValue.values.length !== 0) {
-                        //     // slotsData.isSlotGiven = true;
-                        //     // slotsData.slotsAnswered.push("serviceType");
-                        //     // slotsData.slotsAnswered.push("jobProfileType");
-                        //     // conversationData.isNameAsked = false;
-                        //     // serviceTypeData = { isGiven: true, data: slotValues[key].listValue.values[0].stringValue };
-                        //     // conversationData.userDetails.serviceType = serviceTypeData.data;
-						// 	res.redirect('/https://www.gurus-inc.com/services/');
-                        // }
-                        break;
-                        case "1":
-                            console.log("****jobProfileType***",JSON.stringify(slotValues[key]));
-                            // if (slotValues[key].listValue.values.length !== 0) {
-                            //     // slotsData.isSlotGiven = true;
-                            //     // slotsData.slotsAnswered.push("serviceType");
-                            //     // slotsData.slotsAnswered.push("jobProfileType");
-                            //     // conversationData.isNameAsked = false;
-                            //     // nameData = { isGiven: true, data: slotValues[key].listValue.values[0].stringValue };
-                            //     // conversationData.userDetails.jobProfileType = jobProfileTypeData.data;
-							// 	res.redirect('/https://www.gurus-inc.com/careers/');
-                            // }
-                            break;   
-                }
-            }
-			// // Ask email conditions 
-			// if(slotValues.given-name.listValue.values.length()>0){
-			// 	let slotsData = { isSlotGiven: false, slotsAnswered: [] };
-		
-			// 			responseObject = [
-                            
             
-                                
-            //                         {
-            //                             conditions: [
-            //                                 {
-            //                                     "conditionType": "askEmail",
-            //                                     "conditionValue": [conversationData]
-            //                                 }
-            //                             ],
-                                        
-            //                         }
-                                
-                            
-            //             ]
-						
-			// // console.dir(responseObject, { depth: null, colors: true });
-			// let result = integrator.responseCreater(responseObject);
-			// return res.status(result.statusCode).json(result);
-			// }
-			// //confirm name and email
-			// else if(slotValues.email.listValue.values.length()>0)
-			// {
-			// 	let slotsData = { isSlotGiven: false, slotsAnswered: [] };
 		
-			// 			responseObject = [
-                            
-            
-                                
-            //                         {
-            //                             conditions: [
-            //                                 {
-            //                                     "conditionType": "nameEmailConfirm",
-            //                                     "conditionValue": [conversationData]
-            //                                 }
-            //                             ],
-                                       
-            //                         }
-                                
-                            
-            //             ]
-						
-			// console.dir(responseObject, { depth: null, colors: true });
-			// let result = integrator.responseCreater(responseObject);
-			// return res.status(result.statusCode).json(result);
-			// }
-			// else{
-			// 	let slotsData = { isSlotGiven: false, slotsAnswered: [] };
 		
-			// 			responseObject = [
-                            
-            
-                                
-            //                         {
-            //                             conditions: [
-            //                                 {
-            //                                     "conditionType": "askName",
-            //                                     "conditionValue": [conversationData]
-            //                                 }
-            //                             ]
-            //                         }
-                                
-                            
-            //             ]
-						
-			// // console.dir(responseObject, { depth: null, colors: true });
-			// let result = integrator.responseCreater(responseObject);
-			// return res.status(result.statusCode).json(result);
-			// }
 			let responseObject = [];
             
 			// if (!Array.isArray(conversationData.slotsAnswered)) conversationData.slotsAnswered = [];
 			// let slotsData = { isSlotGiven: false, slotsAnswered: [] };
 
-			// 			responseObject = [
+						responseObject = [
                             
             
                                 
-            //                         {
-            //                             conditions: [
-            //                                 {
-            //                                     "conditionType": "condition",
-            //                                     "conditionValue": [conversationData]
-            //                                 }
-            //                             ],
-            //                             replaceMentValues: [
-            //                                 {
-            //                                     replaceKey: "$dynamicEmail",
-            //                                     replaceIn: "message",
-            //                                     replaceValue: "user"
-            //                                 }
-            //                             ]
-            //                         }
+                                    {
+                                        conditions: [
+                                            {
+                                                "conditionType": "Role",
+                                                "conditionValue": [conversationData]
+                                            }
+                                        ],
+                                        replaceMentValues: [
+                                            {
+                                                replaceKey: "$Role",
+                                                replaceIn: "message",
+                                                replaceValue: roles
+                                            }
+                                        ]
+                                    }
                                 
                             
-            //             ]
+                        ]
 						
 			// // console.dir(responseObject, { depth: null, colors: true });
 			let result = integrator.responseCreater(responseObject);
