@@ -1,6 +1,6 @@
 const router = require("express").Router()
-const { readMore }  = require('../controllers/readMore');
+const  readMoreController  = require('../controllers/readMore');
 
-router.post("/readMore", readMore);
+router.post("/readMore", readMoreController?.readMore);
 
 module.exports = router; 
