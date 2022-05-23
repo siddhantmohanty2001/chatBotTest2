@@ -44,11 +44,16 @@ let contactUsController = {
                         case "phone-number":
                             console.log("****PHONE NUMBER***",JSON.stringify(slotValues[key].listValue.values));
                             if (slotValues[key].listValue.values.length !== 0) {
-                                slotsData.isSlotGiven = true;
-                                slotsData.slotsAnswered.push("askPhoneNumber");
-                                conversationData.isNameAsked = false;
-                                phoneNumberData = { isGiven: true,verifiedStatus: true, data: slotValues[key].listValue.values[0].stringValue };
-                                conversationData.userDetails.phoneNumber = phoneNumberData.data;
+                                let phoneVerifiedData = await checkValidPhoneNumber(slotValues[key].listValue.values[0].stringValue);
+                                if (phoneVerifiedData.isValid) {
+                                    slotsData.isSlotGiven = true;
+                                    conversationData.isPhoneNumberAsked = false;
+                                    slotsData.slotsAnswered.push("askPhoneNumber");
+                                    phoneNumberData = { isGiven: true, verifiedStatus: true, data: phoneVerifiedData.data };
+                                    conversationData.userDetails.phoneNumber = phoneNumberData.data;
+                                } else {
+                                    phoneNumberData = { isGiven: true, verifiedStatus: false, condition: phoneVerifiedData.condition, data: phoneVerifiedData.data };
+                                }
                             }
                             break;
                     case "email":
