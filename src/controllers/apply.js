@@ -47,7 +47,7 @@ let applyController = {
                                 slotsData.isSlotGiven = true;
                                 slotsData.slotsAnswered.push("askNumber");
                                 conversationData.isNameAsked = false;
-                                phoneNumberData = { isGiven: true,verifiedStatus: false, data: slotValues[key].listValue.values[0].stringValue };
+                                phoneNumberData = { isGiven: true,verifiedStatus: true, data: slotValues[key].listValue.values[0].stringValue };
                                 conversationData.userDetails.phoneNumber = phoneNumberData.data;
                             }
                             break;
