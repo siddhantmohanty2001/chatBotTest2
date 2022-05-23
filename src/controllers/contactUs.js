@@ -137,7 +137,7 @@ let contactUsController = {
                     leadGenaratedLogs(conversationData.userDetails);
                     if (conversationData.userDetails.name) conversationData.userDetails.name = conversationData.userDetails.name.trim()
                     let mailData = mailComposeForSalesTeam(conversationData.userDetails);
-                    sendMail(mailData.email, mailData.subject, mailData.body, [], conversationData);
+                    // sendMail(mailData.email, mailData.subject, mailData.body, [], conversationData);
                     responseObject = integrator.singleValueReplacer(toAsk, "$userName", conversationData.userDetails.name, "message");
                 } else {
                     console.log("wtf is going on!");
