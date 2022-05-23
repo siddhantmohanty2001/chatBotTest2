@@ -14,7 +14,36 @@ let contactController = {
 		let slotValues=conversationData.slotValues;
 		console.log("slot values here",slotValues);
 		try {
-
+            for (let key in slotValues) {
+                console.log({ key })
+		
+                switch (key) {
+                    case "serviceType":
+                        console.log("****ServiceType***",JSON.stringify(slotValues[key].listValue.values));
+                        if (slotValues[key].listValue.values.length !== 0) {
+                            // slotsData.isSlotGiven = true;
+                            // slotsData.slotsAnswered.push("serviceType");
+                            // slotsData.slotsAnswered.push("jobProfileType");
+                            // conversationData.isNameAsked = false;
+                            // serviceTypeData = { isGiven: true, data: slotValues[key].listValue.values[0].stringValue };
+                            // conversationData.userDetails.serviceType = serviceTypeData.data;
+							res.redirect('/https://www.gurus-inc.com/services/');
+                        }
+                        break;
+                        case "jobProfileType":
+                            console.log("****jobProfileType***",JSON.stringify(slotValues[key].listValue.values));
+                            if (slotValues[key].listValue.values.length !== 0) {
+                                // slotsData.isSlotGiven = true;
+                                // slotsData.slotsAnswered.push("serviceType");
+                                // slotsData.slotsAnswered.push("jobProfileType");
+                                // conversationData.isNameAsked = false;
+                                // nameData = { isGiven: true, data: slotValues[key].listValue.values[0].stringValue };
+                                // conversationData.userDetails.jobProfileType = jobProfileTypeData.data;
+								res.redirect('/https://www.gurus-inc.com/careers/');
+                            }
+                            break;   
+                }
+            }
 			// // Ask email conditions 
 			// if(slotValues.given-name.listValue.values.length()>0){
 			// 	let slotsData = { isSlotGiven: false, slotsAnswered: [] };
@@ -89,44 +118,44 @@ let contactController = {
 			// let result = integrator.responseCreater(responseObject);
 			// return res.status(result.statusCode).json(result);
 			// }
-			let responseObject = [];
+			// let responseObject = [];
             
-			if (!Array.isArray(conversationData.slotsAnswered)) conversationData.slotsAnswered = [];
-			let slotsData = { isSlotGiven: false, slotsAnswered: [] };
+			// if (!Array.isArray(conversationData.slotsAnswered)) conversationData.slotsAnswered = [];
+			// let slotsData = { isSlotGiven: false, slotsAnswered: [] };
 
-						responseObject = [
+			// 			responseObject = [
                             
             
                                 
-                                    {
-                                        conditions: [
-                                            {
-                                                "conditionType": "condition",
-                                                "conditionValue": [conversationData]
-                                            }
-                                        ],
-                                        replaceMentValues: [
-                                            {
-                                                replaceKey: "$dynamicEmail",
-                                                replaceIn: "message",
-                                                replaceValue: "user"
-                                            }
-                                        ]
-                                    }
+            //                         {
+            //                             conditions: [
+            //                                 {
+            //                                     "conditionType": "condition",
+            //                                     "conditionValue": [conversationData]
+            //                                 }
+            //                             ],
+            //                             replaceMentValues: [
+            //                                 {
+            //                                     replaceKey: "$dynamicEmail",
+            //                                     replaceIn: "message",
+            //                                     replaceValue: "user"
+            //                                 }
+            //                             ]
+            //                         }
                                 
                             
-                        ]
+            //             ]
 						
-			// console.dir(responseObject, { depth: null, colors: true });
-			let result = integrator.responseCreater(responseObject);
-			return res.status(result.statusCode).json(result);
+			// // console.dir(responseObject, { depth: null, colors: true });
+			// let result = integrator.responseCreater(responseObject);
+			// return res.status(result.statusCode).json(result);
 		} catch (error) {
 			console.log(error);
 			let result = integrator.responseCreater(integrator.conditionCreater("Default response"), conversationData);
 			res.status(result.statusCode).json(result);
 		}
 	},
-	allSlots: ["askName", "askEmail", "askPhoneNumber"],
+	// allSlots: ["askName", "askEmail", "askPhoneNumber"],
 };
 
 
