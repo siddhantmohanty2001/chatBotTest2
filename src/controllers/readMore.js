@@ -9,8 +9,8 @@ let readMoreController = {
 
     readMore: async(req, res) => {
         let conversationData = req.body.conversationData;
-        // console.log(JSON.stringify(conversationData, null, 4));
-        // console.dir(JSON.stringify(conversationData.slotValues, null, 4));
+        console.log(JSON.stringify(conversationData, null, 4));
+        console.dir(JSON.stringify(conversationData.slotValues, null, 4));
         try {
             let responseObject = [];
             let allSlots = ["serviceType",  "jobProfileType"];
