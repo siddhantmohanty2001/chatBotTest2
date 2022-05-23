@@ -29,8 +29,8 @@ let testController = {
                                         replaceMentValues: [
                                             {
                                                 replaceKey: "$Role",
-                                                replaceIn: "message",
-                                                replaceValue: "roles"
+                                                replaceIn: "ticketcard",
+                                                replaceValue: roles
                                             }
                                         ]
                                     }
