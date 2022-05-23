@@ -5,20 +5,15 @@ const { leadGenaratedLogs } = require("../utils/logger");
 const { mailComposeForSalesTeam } = require("../utils/mailComposer");
 const { sendMail } = require("../utils/mailer");
 const { slotData } = require('../utils/supporter')
-let contactController = {
+let testController = {
 	
 	test: async (req, res) => {
 		let conversationData = req.body.conversationData;
 		console.log(req.body);
 		const roles=["Program Management","Project Management","Risk Management","Software Quality Management","Configuration Management"]
 		try {
-            
-		
-		
+            		
 			let responseObject = [];
-            
-			// if (!Array.isArray(conversationData.slotsAnswered)) conversationData.slotsAnswered = [];
-			// let slotsData = { isSlotGiven: false, slotsAnswered: [] };
 
 						responseObject = [
                             
@@ -35,7 +30,7 @@ let contactController = {
                                             {
                                                 replaceKey: "$Role",
                                                 replaceIn: "message",
-                                                replaceValue: roles
+                                                replaceValue: "roles"
                                             }
                                         ]
                                     }
@@ -52,8 +47,8 @@ let contactController = {
 			res.status(result.statusCode).json(result);
 		}
 	},
-	// allSlots: ["askName", "askEmail", "askPhoneNumber"],
+	
 };
 
 
-module.exports = contactController;
+module.exports = testController;
