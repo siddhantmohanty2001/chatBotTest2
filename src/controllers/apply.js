@@ -13,17 +13,17 @@ let applyController = {
         // console.dir(JSON.stringify(conversationData.slotValues, null, 4));
         try {
             let responseObject = [];
-            let allSlots = ["askName",  "askEmail"];
+            let allSlots = ["askName",  "askEmail","askNumber"];
             let slotValues = conversationData.slotValues;
             let invalidData = []
             if (!Array.isArray(conversationData.slotsAnswered)) conversationData.slotsAnswered = [];
             let slotsData = { isSlotGiven: false, slotsAnswered: [] };
-            // let phoneNumberData = { isGiven: false, verifiedStatus: false, data: null };
+            let phoneNumberData = { isGiven: false, verifiedStatus: false, data: null };
             let emailData = { isGiven: false, verifiedStatus: false, isBusinessEmail: false, data: null };
             let nameData = { isGiven: false, data: null };
             // let jobSeekerData = { isGiven: false, data: false };
             if (!conversationData.userDetails) conversationData.userDetails = {};
-            if (conversationData.leadInserted && conversationData.intentNameByCordinator === "agent.contactUs") {
+            if (conversationData.leadInserted && conversationData.intentNameByCordinator === "agent.career.apply") {
                 let result = integrator.responseCreater(integrator.conditionCreater("leadAlreadyCaptured"), conversationData);
                 return res.status(result.statusCode).json(result);
             }
@@ -41,6 +41,16 @@ let applyController = {
                             conversationData.userDetails.name = nameData.data;
                         }
                         break;
+                        case "phone-number":
+                            console.log("****PHONE NUMBER***",JSON.stringify(slotValues[key].listValue.values));
+                            if (slotValues[key].listValue.values.length !== 0) {
+                                slotsData.isSlotGiven = true;
+                                slotsData.slotsAnswered.push("askNumber");
+                                conversationData.isNameAsked = false;
+                                phoneNumberData = { isGiven: true,verifiedStatus: false, data: slotValues[key].listValue.values[0].stringValue };
+                                conversationData.userDetails.phoneNumber = phoneNumberData.data;
+                            }
+                            break;
                     case "email":
 						console.log("****EMAIL***",JSON.stringify(slotValues[key].listValue.values));
                         if (slotValues[key].listValue.values.length !== 0) {
@@ -86,23 +96,24 @@ let applyController = {
 				console.log("****Slot answered length 0*****")
                 conversationData.isNameAsked = true;
                 responseObject = integrator.conditionCreater("askName");
-                conversationData.previousIntentName = "agent.contactUs";
+                conversationData.previousIntentName = "agent.career.apply";
                 conversationData.nameAskedFlag = true;
             } else {
 				console.log("****Slot answered length greater than 0*****")
                 let toAsk = slotFiller(conversationData.slotsAnswered, allSlots);
                 if (invalidData.length == 2) {
-                    toAsk = "askEmail";
+                    toAsk = "invalidEmailAndPhone";
                 }
                 if (invalidData.length == 1) {
                     toAsk = invalidData[0];
                 }
-                conversationData.previousIntentName = "agent.contactUs";
+                conversationData.previousIntentName = "agent.career.apply";
                 switch (toAsk) {
                     case "askEmail":
                         conversationData.isEmailAsked = true;
                         break;
-                   
+                    case "askNumber":
+                        conversationData.isNumberAsked=true;
                     case "askName":
                         conversationData.isNameAsked = true;
                         break;
@@ -142,7 +153,7 @@ let applyController = {
             res.status(result.statusCode).json(result);
         }
     },
-    allSlots: ["askName", "askEmail"],
+    allSlots: ["askName", "askEmail","askNumber"],
 };
 
 
