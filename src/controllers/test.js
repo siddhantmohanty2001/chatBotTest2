@@ -10,37 +10,38 @@ let contactController = {
 	test: async (req, res) => {
 		let conversationData = req.body.conversationData;
 		// console.log(req.body);
-		// console.log(conversationData.slotValues);
+		console.log(conversationData);
 		let slotValues=conversationData.slotValues;
 		console.log("slot values here",slotValues);
 		try {
             for (let key in slotValues) {
-                console.log({ key })
+                console.log("***KEY***",{ key })
 		
                 switch (key) {
-                    case "serviceType":
-                        console.log("****ServiceType***",JSON.stringify(slotValues[key].listValue.values));
-                        if (slotValues[key].listValue.values.length !== 0) {
-                            // slotsData.isSlotGiven = true;
-                            // slotsData.slotsAnswered.push("serviceType");
-                            // slotsData.slotsAnswered.push("jobProfileType");
-                            // conversationData.isNameAsked = false;
-                            // serviceTypeData = { isGiven: true, data: slotValues[key].listValue.values[0].stringValue };
-                            // conversationData.userDetails.serviceType = serviceTypeData.data;
-							res.redirect('/https://www.gurus-inc.com/services/');
-                        }
+					
+                    case "0":
+                        console.log("****ServiceType***",JSON.stringify(slotValues[key]));
+                        // if (slotValues[key].listValue.values.length !== 0) {
+                        //     // slotsData.isSlotGiven = true;
+                        //     // slotsData.slotsAnswered.push("serviceType");
+                        //     // slotsData.slotsAnswered.push("jobProfileType");
+                        //     // conversationData.isNameAsked = false;
+                        //     // serviceTypeData = { isGiven: true, data: slotValues[key].listValue.values[0].stringValue };
+                        //     // conversationData.userDetails.serviceType = serviceTypeData.data;
+						// 	res.redirect('/https://www.gurus-inc.com/services/');
+                        // }
                         break;
-                        case "jobProfileType":
-                            console.log("****jobProfileType***",JSON.stringify(slotValues[key].listValue.values));
-                            if (slotValues[key].listValue.values.length !== 0) {
-                                // slotsData.isSlotGiven = true;
-                                // slotsData.slotsAnswered.push("serviceType");
-                                // slotsData.slotsAnswered.push("jobProfileType");
-                                // conversationData.isNameAsked = false;
-                                // nameData = { isGiven: true, data: slotValues[key].listValue.values[0].stringValue };
-                                // conversationData.userDetails.jobProfileType = jobProfileTypeData.data;
-								res.redirect('/https://www.gurus-inc.com/careers/');
-                            }
+                        case "1":
+                            console.log("****jobProfileType***",JSON.stringify(slotValues[key]));
+                            // if (slotValues[key].listValue.values.length !== 0) {
+                            //     // slotsData.isSlotGiven = true;
+                            //     // slotsData.slotsAnswered.push("serviceType");
+                            //     // slotsData.slotsAnswered.push("jobProfileType");
+                            //     // conversationData.isNameAsked = false;
+                            //     // nameData = { isGiven: true, data: slotValues[key].listValue.values[0].stringValue };
+                            //     // conversationData.userDetails.jobProfileType = jobProfileTypeData.data;
+							// 	res.redirect('/https://www.gurus-inc.com/careers/');
+                            // }
                             break;   
                 }
             }
@@ -118,7 +119,7 @@ let contactController = {
 			// let result = integrator.responseCreater(responseObject);
 			// return res.status(result.statusCode).json(result);
 			// }
-			// let responseObject = [];
+			let responseObject = [];
             
 			// if (!Array.isArray(conversationData.slotsAnswered)) conversationData.slotsAnswered = [];
 			// let slotsData = { isSlotGiven: false, slotsAnswered: [] };
@@ -147,8 +148,8 @@ let contactController = {
             //             ]
 						
 			// // console.dir(responseObject, { depth: null, colors: true });
-			// let result = integrator.responseCreater(responseObject);
-			// return res.status(result.statusCode).json(result);
+			let result = integrator.responseCreater(responseObject);
+			return res.status(result.statusCode).json(result);
 		} catch (error) {
 			console.log(error);
 			let result = integrator.responseCreater(integrator.conditionCreater("Default response"), conversationData);
