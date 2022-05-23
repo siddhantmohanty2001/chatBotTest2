@@ -114,6 +114,7 @@ let applyController = {
                         break;
                     case "askNumber":
                         conversationData.isNumberAsked=true;
+                        break;
                     case "askName":
                         conversationData.isNameAsked = true;
                         break;
