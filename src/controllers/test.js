@@ -30,7 +30,7 @@ let testController = {
                                             {
                                                 replaceKey: "$Role",
                                                 replaceIn: "ticketCard",
-                                                replaceValue: roles
+                                                replaceValue: roles[0]
                                             }
                                         ]
                                     }
