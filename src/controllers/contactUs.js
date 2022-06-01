@@ -52,7 +52,9 @@ let contactUsController = {
                                     phoneNumberData = { isGiven: true, verifiedStatus: true, data: phoneVerifiedData.data };
                                     conversationData.userDetails.phoneNumber = phoneNumberData.data;
                                 } else {
+                                    console.log("***PHONE NUMBER INVALID")
                                     phoneNumberData = { isGiven: true, verifiedStatus: false, condition: phoneVerifiedData.condition, data: phoneVerifiedData.data };
+                                    invalidData.push("invalidPhoneNumber")
                                 }
                             }
                             break;
@@ -106,10 +108,14 @@ let contactUsController = {
             } else {
 				console.log("****Slot answered length greater than 0*****")
                 let toAsk = slotFiller(conversationData.slotsAnswered, allSlots);
-                if (invalidData.length == 2) {
-                    toAsk = "invalidEmailAndPhone";
-                }
-                if (invalidData.length == 1) {
+                // if (invalidData.length == 2) {
+                //     toAsk = "invalidEmailAndPhone";
+                // }
+                // if (invalidData.length == 1) {
+                //     toAsk = invalidData[0];
+                // }
+                if (invalidData.length > 0) {
+                    console.log("****something invalid*****");
                     toAsk = invalidData[0];
                 }
                 conversationData.previousIntentName = "agent.career.apply";

@@ -10,7 +10,7 @@ let testController = {
 	test: async (req, res) => {
 		let conversationData = req.body.conversationData;
 		console.log(req.body);
-		const roles=["Program Management","Project Management","Risk Management","Software Quality Management","Configuration Management"]
+		// const roles=["Program Management","Project Management","Risk Management","Software Quality Management","Configuration Management"]
 		const keys = [['Job Profile', 'Vacancy'],['Job Profile', 'Vacancy'],['Job Profile', 'Vacancy'],['Job Profile', 'Vacancy']]
 const values = [['Project Management', '3'], ['Risk Management', '2'], ['Program Management', '2'], ['Software Quality Management', '10']]
 const title = [['Project Manager'], ['SDE 2'], ['SDE 3'], ['SDE 1']]
