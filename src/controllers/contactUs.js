@@ -86,7 +86,7 @@ let contactUsController = {
                                     emailData = { isGiven: true, verifiedStatus: true, isBusinessEmail: true, data: slotValues[key].listValue.values[0].stringValue };
                                     conversationData.userDetails.email = emailData.data;
                                 } else {
-                                    console.log("here");
+                                    console.log("INVALID FORMAT");
                                     invalidData.push("invalidEmail");
                                     conversationData.invalidEmail = true;
                                     conversationData.discussionWithUserForEmailValidity = true;
