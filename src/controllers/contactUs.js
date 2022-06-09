@@ -62,14 +62,16 @@ let contactUsController = {
                     case "email":
 						console.log("****EMAIL***",JSON.stringify(slotValues[key].listValue.values));
                         if (slotValues[key].listValue.values.length !== 0) {
-                            let isBusinessMail = validateBusinessEmail(slotValues[key].listValue.values[0].stringValue);
+                            // let isBusinessMail = validateBusinessEmail(slotValues[key].listValue.values[0].stringValue);
                             let emailVerifiedData = "";
-                            if (isBusinessMail) emailVerifiedData = await verifyValidEmail(slotValues[key].listValue.values[0].stringValue).then((res) => { return res }).catch((err) => { return err })
+                             emailVerifiedData = await verifyValidEmail(slotValues[key].listValue.values[0].stringValue).then((res) => { return res }).catch((err) => { return err })
                                 //let isValidEmail = verifyValidEmail(slotValues[key].listValue.values[0].stringValue)
-                            if (!isBusinessMail) {
-                                invalidData.push("invalidBusinessEmail");
-                                emailData = { isGiven: true, verifiedStatus: false, isBusinessEmail: false, data: slotValues[key].listValue.values[0].stringValue };
-                            } else {
+                            // if (!isBusinessMail) {
+                            //     invalidData.push("invalidBusinessEmail");
+                            //     emailData = { isGiven: true, verifiedStatus: false, isBusinessEmail: false, data: slotValues[key].listValue.values[0].stringValue };
+                            // } 
+                            // else 
+                            {
                                 console.log("***EMAIL VERIFIED DATA****",emailVerifiedData);
 								slotsData.isSlotGiven = true;
                                     slotsData.slotsAnswered.push("askEmail");
