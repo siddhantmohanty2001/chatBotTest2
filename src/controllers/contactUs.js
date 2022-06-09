@@ -63,34 +63,36 @@ let contactUsController = {
 						console.log("****EMAIL VALUES***",JSON.stringify(slotValues[key].listValue.values));
                         if (slotValues[key].listValue.values.length !== 0) {
                             // let isBusinessMail = validateBusinessEmail(slotValues[key].listValue.values[0].stringValue);
-                            let emailVerifiedData = "";
-                             emailVerifiedData = await verifyValidEmail(slotValues[key].listValue.values[0].stringValue).then((res) => { return res }).catch((err) => { return err })
-                                //let isValidEmail = verifyValidEmail(slotValues[key].listValue.values[0].stringValue)
+                            // let emailVerifiedData = "";
+                            //  emailVerifiedData = await verifyValidEmail(slotValues[key].listValue.values[0].stringValue).then((res) => { return res }).catch((err) => { return err })
+                                let isValidEmail = verifyValidEmail(slotValues[key].listValue.values[0].stringValue)
                             // if (!isBusinessMail) {
                             //     invalidData.push("invalidBusinessEmail");
                             //     emailData = { isGiven: true, verifiedStatus: false, isBusinessEmail: false, data: slotValues[key].listValue.values[0].stringValue };
                             // } 
                             // else 
-                            {
-                                console.log("***EMAIL VERIFIED DATA****",emailVerifiedData);
-								slotsData.isSlotGiven = true;
-                                    slotsData.slotsAnswered.push("askEmail");
-                                    conversationData.isEmailAsked = false;
-                                    emailData = { isGiven: true, verifiedStatus: true, isBusinessEmail: true, data: slotValues[key].listValue.values[0].stringValue };
-                                    conversationData.userDetails.email = emailData.data;
-                                // if (emailVerifiedData["smtpCheck"] === "true") {
-                                //     slotsData.isSlotGiven = true;
+                            
+                                console.log("***EMAIL VERIFIED DATA****",isValidEmail);
+								// slotsData.isSlotGiven = true;
                                 //     slotsData.slotsAnswered.push("askEmail");
                                 //     conversationData.isEmailAsked = false;
                                 //     emailData = { isGiven: true, verifiedStatus: true, isBusinessEmail: true, data: slotValues[key].listValue.values[0].stringValue };
                                 //     conversationData.userDetails.email = emailData.data;
-                                // } else {
-                                //     console.log("here");
-                                //     conversationData.invailEmail = true;
-                                //     conversationData.discussionWithUserForEmailValidity = true;
-                                //     emailData = { isGiven: true, verifiedStatus: false, isBusinessEmail: true, data: slotValues[key].listValue.values[0].stringValue };
-                                // }
-                            }
+                                if (isValidEmail["formatCheck"] === "true") {
+                                    console.log("VALID FORMAT");
+                                    slotsData.isSlotGiven = true;
+                                    slotsData.slotsAnswered.push("askEmail");
+                                    conversationData.isEmailAsked = false;
+                                    emailData = { isGiven: true, verifiedStatus: true, isBusinessEmail: true, data: slotValues[key].listValue.values[0].stringValue };
+                                    conversationData.userDetails.email = emailData.data;
+                                } else {
+                                    console.log("here");
+                                    invalidData.push("invalidEmail");
+                                    conversationData.invalidEmail = true;
+                                    conversationData.discussionWithUserForEmailValidity = true;
+                                    emailData = { isGiven: true, verifiedStatus: false, isBusinessEmail: true, data: slotValues[key].listValue.values[0].stringValue };
+                                }
+                            
                         }
                         break;
                     
