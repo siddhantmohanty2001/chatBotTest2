@@ -55,7 +55,7 @@ let contactUsController = {
                                     console.log("***PHONE NUMBER INVALID")
                                     console.log(phoneVerifiedData.condition)
                                     phoneNumberData = { isGiven: true, verifiedStatus: false, condition: phoneVerifiedData.condition, data: phoneVerifiedData.data };
-                                    invalidData.push("phoneLessDigits")
+                                    invalidData.push(phoneVerifiedData.condition);
                                 }
                             }
                             break;
