@@ -70,6 +70,7 @@ let contactUsController = {
                                 invalidData.push("invalidBusinessEmail");
                                 emailData = { isGiven: true, verifiedStatus: false, isBusinessEmail: false, data: slotValues[key].listValue.values[0].stringValue };
                             } else {
+                                console.log("***EMAIL VERIFIED DATA****",emailVerifiedData);
 								slotsData.isSlotGiven = true;
                                     slotsData.slotsAnswered.push("askEmail");
                                     conversationData.isEmailAsked = false;
