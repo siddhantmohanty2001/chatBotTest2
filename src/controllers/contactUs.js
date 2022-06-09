@@ -60,7 +60,7 @@ let contactUsController = {
                             }
                             break;
                     case "email":
-						console.log("****EMAIL***",JSON.stringify(slotValues[key].listValue.values));
+						console.log("****EMAIL VALUES***",JSON.stringify(slotValues[key].listValue.values));
                         if (slotValues[key].listValue.values.length !== 0) {
                             // let isBusinessMail = validateBusinessEmail(slotValues[key].listValue.values[0].stringValue);
                             let emailVerifiedData = "";
