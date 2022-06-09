@@ -90,7 +90,7 @@ let contactUsController = {
                                     invalidData.push("invalidEmail");
                                     conversationData.invalidEmail = true;
                                     conversationData.discussionWithUserForEmailValidity = true;
-                                    emailData = { isGiven: true, verifiedStatus: false, isBusinessEmail: true, data: slotValues[key].listValue.values[0].stringValue };
+                                    emailData = { isGiven: true, verifiedStatus: false, isBusinessEmail: true, condition: "invalidEmail", data: slotValues[key].listValue.values[0].stringValue };
                                 }
                             
                         }
