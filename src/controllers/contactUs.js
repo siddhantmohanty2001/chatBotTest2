@@ -120,6 +120,7 @@ let contactUsController = {
                 // if (invalidData.length == 1) {
                 //     toAsk = invalidData[0];
                 // }
+                console.log("INVALID DATA",invalidData);
                 if (invalidData.length > 0) {
                     console.log("****something invalid*****");
                     toAsk = invalidData[0];
