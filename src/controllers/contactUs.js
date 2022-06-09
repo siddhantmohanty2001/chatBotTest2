@@ -65,7 +65,7 @@ let contactUsController = {
                             // let isBusinessMail = validateBusinessEmail(slotValues[key].listValue.values[0].stringValue);
                             // let emailVerifiedData = "";
                             //  emailVerifiedData = await verifyValidEmail(slotValues[key].listValue.values[0].stringValue).then((res) => { return res }).catch((err) => { return err })
-                                let isValidEmail = verifyValidEmail(slotValues[key].listValue.values[0].stringValue)
+                                let isValidEmail = await verifyValidEmail(slotValues[key].listValue.values[0].stringValue)
                             // if (!isBusinessMail) {
                             //     invalidData.push("invalidBusinessEmail");
                             //     emailData = { isGiven: true, verifiedStatus: false, isBusinessEmail: false, data: slotValues[key].listValue.values[0].stringValue };
